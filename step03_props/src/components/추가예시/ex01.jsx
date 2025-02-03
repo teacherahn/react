@@ -1,10 +1,10 @@
 
 /*
 
-  상태(State)와 속성(Props) 관리 예시
+  [ 상태(State)와 속성(Props) 관리 예시 ]
   예제 1: 기본 상태와 Props 사용하기
-  React에서는 state를 통해 컴포넌트 내부의 데이터 변화를 관리하고, 
-  props를 통해 부모 컴포넌트가 자식 컴포넌트에 데이터를 전달합니다.
+  - React에서는 state를 통해 컴포넌트 내부의 데이터 변화를 관리하고 
+    props를 통해 부모 컴포넌트가 자식 컴포넌트에 데이터를 전달한다.
 
 */
 
@@ -27,5 +27,5 @@ function Counter() {
 }
 
 export default Counter;
-//Greeting 컴포넌트는 name이라는 props를 받아 화면에 인사말을 표시합니다.
-//Counter 컴포넌트는 상태 count를 가지고 있으며, 버튼을 클릭할 때마다 count가 증가합니다.
+//Greeting 컴포넌트는 name이라는 props를 받아 화면에 인사말을 표시한다.
+//Counter 컴포넌트는 상태 count를 가지고 있으며, 버튼을 클릭할 때마다 count가 증가한다.

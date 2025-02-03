@@ -1,6 +1,10 @@
 /*
-예제 9: 입력 필드의 onFocus 및 onBlur 이벤트 처리
-입력 필드가 포커스를 얻거나 잃었을 때 이벤트를 처리할 수 있습니다.
+
+
+  [ 입력 필드의 onFocus 및 onBlur 이벤트 처리 ]
+
+  - 입력 필드가 포커스를 얻거나 잃었을 때 이벤트를 처리할 수 있다.
+
 */
 import React, { useState } from 'react';
 

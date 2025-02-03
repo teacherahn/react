@@ -1,10 +1,11 @@
-폼 처리 및 사용자 입력 관리 예제
-예제 1: 단일 입력 필드를 사용한 기본 폼 처리
-간단한 폼을 사용해 사용자가 입력한 이름을 실시간으로 상태에 반영하는 예제입니다.
+/*
 
-코드
-jsx
-코드 복사
+  [  폼 처리 및 사용자 입력 관리 예제 ] 
+  - 예제 1: 단일 입력 필드를 사용한 기본 폼 처리
+  - 간단한 폼을 사용해 사용자가 입력한 이름을 실시간으로 상태에 반영하는 예제이다.
+
+*/
+
 import React, { useState } from 'react';
 
 function NameForm() {
@@ -13,7 +14,9 @@ function NameForm() {
   const handleChange = (event) => {
     setName(event.target.value);
   };
-
+  
+  // name 상태로 입력 필드의 값을 관리하며, onChange 이벤트를 통해 상태를 업데이트한다.
+  // 폼 제출 시 handleSubmit 함수에서 alert를 통해 입력된 이름을 표시한다.
   const handleSubmit = (event) => {
     event.preventDefault();
     alert(`Submitted Name: ${name}`);
@@ -31,15 +34,15 @@ function NameForm() {
 }
 
 export default NameForm;
-설명
-name 상태로 입력 필드의 값을 관리하며, onChange 이벤트를 통해 상태를 업데이트합니다.
-폼 제출 시 handleSubmit 함수에서 alert를 통해 입력된 이름을 표시합니다.
-예제 2: 다중 입력 필드의 상태 관리
-사용자의 이름과 이메일을 입력받아 여러 개의 상태를 관리하는 예제입니다.
 
-코드
-jsx
-코드 복사
+/*
+
+  [ 다중 입력 필드의 상태 관리 ] 
+
+    - 사용자의 이름과 이메일을 입력받아 여러 개의 상태를 관리하는 예제이다.
+    
+*/
+
 import React, { useState } from 'react';
 
 function ContactForm() {

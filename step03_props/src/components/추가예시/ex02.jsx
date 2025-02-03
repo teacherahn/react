@@ -2,20 +2,20 @@
 
   [ 상태를 Props로 전달하기 ]
 
-  -  부모 컴포넌트의 상태를 자식 컴포넌트에 props로 전달하여 데이터를 공유할 수 있습니다.
-  아래 예시에서 상태는 CounterApp에서 관리하고, props는 자식 컴포넌트에 전달되어 값을 변경할 수 없음을 확인할 수 있습니다.
+  -  부모 컴포넌트의 상태를 자식 컴포넌트에 props로 전달하여 데이터를 공유할 수 있다.
+    
 */
 
 import React, { useState } from 'react';
 
-function Display(props) { // Display는 부모 컴포넌트의 count 값을 받아 화면에 표시합니다.
-  //Display 컴포넌트는 props로 전달된 value를 읽을 수만 있으며, 직접 수정할 수 없습니다.
+function Display(props) { // Display는 부모 컴포넌트의 count 값을 받아 화면에 표시한다.
+  //Display 컴포넌트는 props로 전달된 value를 읽을 수만 있으며, 직접 수정할 수 없다.
   return <h1>Current Count: {props.count}</h1>;
 }
 
 function CounterApp() {
   
-  const [count, setCount] = useState(0); // CounterApp 컴포넌트는 count 상태를 가지고 있으며, Display 컴포넌트에 count 값을 전달합니다.
+  const [count, setCount] = useState(0); // CounterApp 컴포넌트는 count 상태를 가지고 있으며, Display 컴포넌트에 count 값을 전달한다.
 
   /*
     const increment = () => {
@@ -36,9 +36,11 @@ export default CounterApp;
 
 
 /*
-부모-자식 컴포넌트 간 데이터 전달 실습 예시
+
+  부모-자식 컴포넌트 간 데이터 전달 실습 예시
 예제 4: 부모에서 자식으로 이벤트 함수 전달하기
 부모 컴포넌트가 자식 컴포넌트에 이벤트 함수도 함께 전달하여 자식 컴포넌트에서 부모 컴포넌트의 상태를 업데이트하도록 할 수 있습니다.
+
 */
 import React, { useState } from 'react';
 

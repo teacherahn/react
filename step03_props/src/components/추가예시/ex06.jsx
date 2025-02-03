@@ -38,5 +38,5 @@ function TodoList() {
 }
 
 export default TodoList;
-// TodoList 컴포넌트는 todos 상태를 관리하고, 새로운 할 일을 추가할 수 있는 기능을 제공합니다.
-// TodoItem 컴포넌트는 props로 전달받은 할 일 목록을 하나씩 렌더링합니다.
+// TodoList 컴포넌트는 todos 상태를 관리하고, 새로운 할 일을 추가할 수 있는 기능을 제공한다.
+// TodoItem 컴포넌트는 props로 전달받은 할 일 목록을 하나씩 렌더링한다.

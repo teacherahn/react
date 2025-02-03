@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 function CheckboxExample() {
   const [isChecked, setIsChecked] = useState(false);
 
+  //체크박스의 선택 상태를 isChecked로 관리하며, onChange 이벤트를 통해 체크박스가 체크되었는지 여부를 반영한다.
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
@@ -23,4 +24,3 @@ function CheckboxExample() {
 }
 
 export default CheckboxExample;
-//체크박스의 선택 상태를 isChecked로 관리하며, onChange 이벤트를 통해 체크박스가 체크되었는지 여부를 반영합니다.

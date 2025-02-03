@@ -1,12 +1,17 @@
 /*
-예제 6: 라디오 버튼 onChange로 선택 항목 관리하기
-여러 개의 라디오 버튼 중 하나를 선택하고, 선택된 값을 상태로 관리합니다.
+
+  [ 라디오 버튼 onChange로 선택 항목 관리하기 ]
+  
+    - 여러 개의 라디오 버튼 중 하나를 선택하고, 선택된 값을 상태로 관리한다.
+
 */
+
 import React, { useState } from 'react';
 
 function RadioButtonExample() {
   const [selectedOption, setSelectedOption] = useState("");
 
+  // 라디오 버튼의 선택된 값이 selectedOption 상태에 저장되며, onChange 이벤트로 선택된 옵션을 변경할 수 있다.
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -32,4 +37,3 @@ function RadioButtonExample() {
 }
 
 export default RadioButtonExample;
-// 라디오 버튼의 선택된 값이 selectedOption 상태에 저장되며, onChange 이벤트로 선택된 옵션을 변경할 수 있습니다.
