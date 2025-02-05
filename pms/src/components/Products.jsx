@@ -6,7 +6,7 @@ const Products = () => {
     const [products,setProducts] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost/product`)
+        axios.get(`http://localhost:8080/product`)
         .then((response)=>{
             setProducts(response.data);
         })
@@ -22,8 +22,7 @@ const Products = () => {
             <h1>상품리스트</h1>       
             <table>
                 <thead>
-                    <tr>
-                        <td>상품 이미지</td>
+                    <tr>                       
                         <td>상품 ID</td>
                         <td>상품 이름</td>
                         <td>일자</td>
@@ -31,8 +30,7 @@ const Products = () => {
                 </thead>
                 <tbody>
                    {products.map((product)=>(
-                        <tr key={product.productId}>
-                            <td><img src={`/images/${product.image}`} width={30} height={30}/></td>
+                        <tr key={product.productId}>                           
                             <td>{product.productId}</td>            
                             <td><Link to={`/ProductDetail/${product.productId}`}>{product.name}</Link></td>
                             <td>{product.createdAt}</td>
@@ -40,6 +38,7 @@ const Products = () => {
                    ))}
                 </tbody>
             </table>
+            <Link to="/CreateProduct"><button>추가</button></Link>
         </>
     );
 

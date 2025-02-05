@@ -2,17 +2,16 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductDetail = () => {
-
     const object = useParams();
-    console.log(object.productId);
-    
-    const [product , setProduct] = useState(null);
+    const [product , setProduct] = useState({});
 
     useEffect(()=>{
-        axios.get(`http://localhost/product/${object.productId}`)
+        axios.get(`http://localhost:8080/product/${object.productId}`)
         .then((response)=>{
+            console.log(response.data);
             setProduct(response.data);
         })
         .catch((error) => {
@@ -25,10 +24,7 @@ const ProductDetail = () => {
         <>
             <h1>상품 상세조회</h1>
         
-            <table>
-                <tr>
-                    <td>상품이미지</td>
-                </tr>
+            <table>               
                 <tr>
                     <td>상품 ID</td>
                     <td>{product.productId}</td>
@@ -54,6 +50,12 @@ const ProductDetail = () => {
                     <td>{product.updatedAt}</td>
                 </tr>
             </table>
+            <Link to={`/UpdateProduct/${product.productId}`}>
+                <button>수정</button>
+            </Link>
+            <Link to={`/DeleteProduct/${product.productId}`}>
+                <button>삭제</button>
+            </Link>
         </>
     );
 
