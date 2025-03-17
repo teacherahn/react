@@ -86,7 +86,7 @@ func5_1(order);
 func5_2(order);
 console.log("result = " + func6(100,200));
 obj.printName1();
-obj.printName2();
+//obj.printName2();
 console.groupEnd();
 
 

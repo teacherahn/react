@@ -1,19 +1,23 @@
-import RadioButtonExample from "./components/추가예시/ex06"
-import SelectExample from "./components/추가예시/ex07"
-import CheckboxExample from "./components/추가예시/ex05"
-import MultiInputForm from "./components/추가예시/ex08"
+import './App.css'
+
+import OnClickEvent from './components/OnClickEvent'
+import OnChangeEvent from './components/OnChangeEvent'
+import OnFocusEvent from './components/OnFocusEvent'
+import MultiInputForm from './components/MultiInputForm'
 
 function App() {
-  
-
   return (
     <>
-      <CheckboxExample/>
+      <h1>Clikc Event</h1>
+      <OnClickEvent />
+      <hr />
+      <h1>Change Event</h1>
+      <OnChangeEvent/>
       <hr/>
-      <RadioButtonExample />
+      <h1>Focus Event</h1>
+      <OnFocusEvent/>
       <hr/>
-      <SelectExample />
-      <hr/>
+      <h1>Multi Input Form</h1>
       <MultiInputForm/>
     </>
   )

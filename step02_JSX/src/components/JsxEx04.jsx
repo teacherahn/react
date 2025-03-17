@@ -1,51 +1,29 @@
+import React from "react";
+
 
 /*
 
-    [ 인라인 스타일링 ]
+    ✅ Component Export
 
-    - 리액트에서 DOM 요소에 스타일을 적용할 때는 문자열 형태로 넣는 것이 아니라 객체 형태로 넣어 주어야 한다.
-    - 스타일 이름 중에서 background-color 처럼 - 문자가 포함되는 이름이 있을 경우 - 문자를 없애고 카멜 표기법(camelCase)으로 작성해야 한다. 
-       따라서 background-color는 backgroundColor로 작성합니다.
-    - 스타일 값이 숫자인 경우에는 단위를 생략하는 것이 아니라 문자열 형태로 단위를 작성해야 한다.
-    
-
+    - 모듈에는 기본 내보내기가 여러 개 있을 수 없다.
+    - 따라서, export default를 사용하여 하나의 컴포넌트만 내보내야 한다.
+    - 여러 개의 컴포넌트를 내보내고 싶다면, 이름을 붙여서 내보내야 한다.
+    - export default ReturnTest1;
+  
 */
 
-function Test1() {
-    const name = '리액트';
-    return (
-        <div style={{
-            backgroundColor: 'black',
-            color: 'aqua',
-            fontSize: '48px',
-            fontWeight: 'bold',
-            padding: 16 // 단위를 생략하면 px로 지정됩니다.
-        }}
-        >
-            {name}
-        </div>
-    );
-}
+const ExportTest1 = () => {return <p>export test1</p>}
+const ExportTest2 = () => {return <p>export test2</p>}
+const ExportTest3 = () => {return <p>export test3</p>}
+const ExportTest4 = () => {return <p>export test4</p>}
+const ExportTest5 = () => {return <p>export test5</p>}
 
 
-function Test2() {
-    const name = '리액트';
-    const style = {
-        backgroundColor: 'black',
-        color: 'aqua',
-        fontSize: '48px',
-        fontWeight: 'bold',
-        padding: 16 // 단위를 생략하면 px로 지정됩니다.
-    };
-    return <div style={style}>{name}</div>;
-}
+    
+// 기본 내보내기가 하나만 있어야 한다.
+export default ExportTest1; 
+// export default ExportTest2; // 오류 발생 , 
+// export default ExportTest3;
 
-import './App.css';
-function Test3() {
-    const name = '리액트';
-    return <div className='react'>{name}</div>;
-}
-
-export default Test1;
-// export default Test2;
-// export default Test3;  
+// 이름을 붙여서 여러개의 컴포넌트를 내보낼 수 있다.
+export {ExportTest2, ExportTest3, ExportTest4, ExportTest5}; 

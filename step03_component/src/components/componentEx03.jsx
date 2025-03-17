@@ -23,19 +23,19 @@
 
 */
 
-function Title() {
+const Title = () => {
   return <h3>제목</h3>;
 }
-function Content() {
+const Content = () => {
   return <p>본문 내용</p>;
 }
 
 
-function Header() {
+const Header = () => {
   return <h1>웹사이트 제목</h1>;
 }
 
-function Body() {
+const Body = () => {
   return <>
           <h2>여기는 본문 내용입니다.</h2>
           <Title/>
@@ -43,11 +43,11 @@ function Body() {
         </>;
 }
 
-function Footer() {
+const Footer = () => {
   return <small>© 2025 React 학습</small>;
 }
 
-function Container() {
+const Container = () => {
   return (
     <div>
       <Header />

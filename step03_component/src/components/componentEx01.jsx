@@ -10,8 +10,9 @@
 
 */
 
-function Button() {
-  return <button>Click me!</button>;
+const Button = (props) => {
+  {/*return <button>Click me!</button>;*/}
+  return <button>{props.label}</button>;
 }
 
 export default Button;

@@ -8,26 +8,33 @@
 import React, { useState } from 'react';
 
 function MultiInputForm() {
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  
   
   // 여러 필드 값을 관리하기 위해 formData 상태를 객체로 설정하고, name 속성을 사용해 어떤 필드가 업데이트되는지 확인하여 상태를 업데이트한다.
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    console.log("name = " + name);
+    console.log("value = " + value);
+    console.log("");
   };
 
   return (
     <div>
+      <p>
       <label>
-        Name:
-        <input type="text" name="name" value={formData.name} onChange={handleChange} />
+        Name: <input type="text" name="name"  onChange={handleChange} />
       </label>
+      </p>
+      <p>
       <label>
-        Email:
-        <input type="email" name="email" value={formData.email} onChange={handleChange} />
+        Email: <input type="email" name="email" onChange={handleChange} />
       </label>
-      <p>Name: {formData.name}</p>
-      <p>Email: {formData.email}</p>
+      </p>
+      <p>
+      <label>
+        HP:  <input type="text" name="hp" onChange={handleChange} />
+      </label>
+      </p>
     </div>
   );
 }

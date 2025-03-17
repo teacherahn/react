@@ -1,78 +1,34 @@
-import { Fragment } from "react"
+import React from "react";
 
-/*
+// ✅ JSX 주석 (Comment) {/* ... */}
 
-    [ JSX의 자식 요소 ]
+// JSX 내부에서 주석을 작성할 때는 {/* ... 주석 ... */}와 같은 형식으로 작성한다.
+// JSX는 실제로 HTML처럼 보이지만, 빌드 도구(예: Babel)가 이를 JavaScript로 변환하는데 
+// 결과는 React.createElement() 호출로 바뀌고 주석은 제거된다.  따라서, 주석은 브라우저에 나타나지 않는다.
 
-    - JSX에서는 모든 자식 요소가 하나의 부모 요소 내에 있어야 한다.
-    - 다중 요소를 사용하고 싶다면, <div>, <Fragment> 등으로 묶어줘야 한다.
+const CommentTest = () => {
 
-*/
-
-
-function ReturnTest1() {
-
-    // 반환 엘리먼트가 1개이면 ()를 생략할 수 있다.
-    //return (<h1>Test Data1</h1>);  // OK
-    return <h1>Test Data1</h1>;    // OK
-
-}
-
- // 컴포넌트에 여러 요소가 있지만 반드시 부모 요소 하나로 감싸야 한다. [오류!]
-function ReturnTest2() {
-
-    /*
-    return (
-        <h1>Test Data1</h1>
-        <h2>Test Data2</h2>
-        <h3>Test Data3</h3>
-    )
-    */
-
-}
-
-// div 태그 사용
-function ReturnTest3() {
+    // 일반 JavaScript 영역에서의 주석 > 렌더링 안됨
+    /* 자바스크립트 주석 > 렌더링 안됨 */
     
+    // JSX 내부에서는 {/* ... */}로 주석을 작성해야 함
     return (
-        <div>
-            <h1>Test Data1</h1>
-            <h2>Test Data2</h2>
-            <h3>Test Data3</h3>
-        </div>
-    )
-}
+        <div> 
+            <h1>JSX</h1>
+            <p>JSX는 React에서 사용되는 JavaScript 확장 문법입니다.</p>
+            {/*<p>JSX는 React에서 사용되는 JavaScript 확장 문법입니다.</p>*/}
+            {/* JSX 내부 주석으로, 브라우저에는 나타나지 않습니다. */}
+            // 텍스트로 렌더링 됩니다.
+            /* 역시 텍스트로 렌더링 됩니다" */
+        </div>    
+    );
 
-// import { Fragment } from "react"
-//  <Fragment> 사용
-function ReturnTest4() {
-    return (
-        <Fragment>
-            <h1>Test Data1</h1>
-            <h2>Test Data2</h2>
-            <h3>Test Data3</h3>
-        </Fragment>
-    )
-}
-
-//   <> 사용
-function ReturnTest5() {
-    return (
-        <>
-            <h1>Test Data1</h1>
-            <h2>Test Data2</h2>
-            <h3>Test Data3</h3>
-        </>
-    )
+    // 일반 JavaScript 영역에서의 주석 > 렌더링 안됨
+    /* 자바스크립트 주석 > 렌더링 안됨 */
 
 }
 
-// 모듈에는 기본 내보내기가 여러 개 있을 수 없다.
-export default ReturnTest1;
-/*
-export default ReturnTest1;
-export default ReturnTest2;
-export default ReturnTest3;
-export default ReturnTest4;
-export default ReturnTest5;
-*/
+
+
+
+export default CommentTest; // export 하여 App에서 구현한다.

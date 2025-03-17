@@ -26,7 +26,7 @@ const newLength2 = arr4.unshift(0);
 let arr5 = [1, 2, 3, 4, 5];
 let sliced = arr5.slice(2, 5);
 let sliced2 = arr5.slice(2);
-let sliced3 = arr5.slice(-3);
+let sliced3 = arr5.slice(3);
 
 // 6. concat
 // 두개의 서로 다른 배열을 이어 붙여서 새로운 배열을 반환

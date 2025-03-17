@@ -1,18 +1,24 @@
 import './App.css'
 import React from 'react'
 import Button from './components/componentEx01'
-import Greeting2 from './components/componentEx02'
+import {FunctionComponent,ClassComponent} from './components/componentEx02'
 import Container from './components/componentEx03'
-function App() {
- 
+import Counter from './components/componentEx04'
 
+function App() {
   return (
     <>
-      <Button />
-      <Button />
-      <Button />
-      <Greeting2 />
+      <Button label="signin"/>
+      <Button label="signup"/>
+      <Button label="singout"/>
+      <hr/>
+      <FunctionComponent />
+      <ClassComponent />
+      <hr/>
       <Container />
+      <hr/>
+      <Counter />
+      
     </>
   )
 }

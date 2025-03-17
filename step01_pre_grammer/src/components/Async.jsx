@@ -33,27 +33,36 @@ function promiseEx() {
     // Promise 객체를 생성해 비동기 작업을 정의
     return new Promise((resolve, reject) => {
         console.log("데이터 요청중......");
-        const isSuccess = true;
         // 데이터를 가져온다고 가정
         setTimeout(() => {
+            const isSuccess = true;
             if (isSuccess) {
-                resolve("결과 데이터");
+                resolve({name : "testuser", age : 20});
             } 
             else {
-                reject("데이터 요청에 실패했습니다.");
+                reject({});
             }
         }, 2000);
     });
 
 }
 
-console.group("=== Promise ===");
+console.group("=== Promise / Async / Await ===");
 
-promiseEx()
-    .then((result) => { console.log(result); })
-    .catch((error) => { console.log(error); });
-
-console.groupEnd();
+// promiseEx()
+//     .then((result) => { 
+//         console.log("데이터가 성공적으로 로드 되었습니다.");
+//         console.log(result); 
+//         //return result;
+//     })
+//     // .then((result) => { 
+//     //     console.log("데이터가 성공적으로 로드 되었습니다.");
+//     //     console.log(result); 
+//     // })
+//     .catch((error) => { 
+//         console.log("데이터요청에 실패했습니다.");
+//         console.log(error); 
+//     });
 
 
 /*
@@ -66,12 +75,8 @@ console.groupEnd();
     - async / await는 비동기 함수가 처리되기를 기다릴 때 사용합니다.
     - async / await는 try / catch 문을 사용하여 예외 처리를 합니다.
     - async / await는 async 함수 내부에서만 사용할 수 있습니다.
-    - async 함수는 Promise를 반환합니다.
-
-    - await 키워드는 async 함수 내부에서만 사용할 수 있습니다.
-    - await 키워드는 Promise가 처리될 때까지 기다리는 역할을 합니다.
     - await 키워드는 Promise가 처리되면 그 결과를 반환합니다.
-    - await 키워드는 async 함수 내부에서만 사용할 수 있습니다.
+
     
     [ async / await 동작 방식 ]
 
@@ -88,28 +93,34 @@ async function asyncEx() {
     try {
 
         const result1 = await promiseEx();
+        console.log("async / await 테스트1");
         console.log(result1); 
         
         const result2 = await promiseEx();
+        console.log("async / await 테스트2");
         console.log(result2);    
+
+        const result3 = await promiseEx();
+        console.log("async / await 테스트3");
+        console.log(result3);   
         
     }
     catch (error) {
+        console.log("데이터요청에 실패했습니다.");
         console.log(error);
     }  
 
 }
 
-console.group("=== Async / Await ===");
 asyncEx();
 console.groupEnd();
 
 
 function Async() {
-   return 
-   <div>
-         <h1>async / await</h1>
-   </div>
+   return (
+   <div>    
+         <h1>Promise / Async / Await</h1>
+   </div>);
 }
 
 export default Async;

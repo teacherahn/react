@@ -5,7 +5,7 @@
 
     - React 컴포넌트는 두 가지 방식으로 정의할 수 있으며, 두 방식은 몇 가지 중요한 차이점이 있다.
 
-    2-1) 함수형 컴포넌트
+     1) 함수형 컴포넌트
     - 함수형 컴포넌트는 함수를 사용하여 컴포넌트를 정의하며, 최근에는 React의 Hooks가 도입되면서 가장 널리 사용되는 방식이다.
     - 간단한 함수 형태로 정의되며, props를 받아서 JSX를 반환한다.
     - 상태 관리와 생명주기 메서드(useState, useEffect)를 사용하기 위해 React Hooks가 필요하다.
@@ -17,10 +17,9 @@
 */
 
 // 함수형 컴포넌트
-export function Greeting1() {
-  return <p>Hello With Functino Component!</p>;
+const FunctionComponent = () => {
+  return <p>Function Component!</p>;
 }
-//export default Greeting1;
 
 
 /*
@@ -37,10 +36,14 @@ export function Greeting1() {
 */
 
 import React, { Component } from 'react';
-export class Greeting2 extends Component {
+class ClassComponent extends Component {
   render() {
-    return <p>Hello With Class Component!</p>;
+    return <p> Class Component!</p>;
   }
 }
-export default Greeting2;
+
+export { FunctionComponent, ClassComponent }; 
+
+
+
 

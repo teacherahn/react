@@ -1,3 +1,4 @@
+import { useState } from "react";
 /*
  
   4,5fmf 
@@ -8,23 +9,22 @@
 
 */
 
-import React, { useState } from 'react';
-
-function ClickCounter() {
+const OnClickEvent = () => {
+  
   const [count, setCount] = useState(0);
-
   //handleClick 함수가 onClick 이벤트로 연결되어, 버튼을 클릭할 때마다 count 상태가 증가한다.
   const handleClick = () => {
     setCount(count + 1);
+    console.log("click event is triggered " + count);
   };
 
   return (
     <div>
-      <p>Button clicked {count} times</p>
       <button onClick={handleClick}>Click Me</button>
-      <button onClick={() => setCount(count + 1)}>Click Me</button>
+      <p> count : {count}</p>
     </div>
   );
+
 }
 
-export default ClickCounter;
+export default OnClickEvent;

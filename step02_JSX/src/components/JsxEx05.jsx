@@ -1,35 +1,67 @@
+import '../assets/myStyle.css';
+import postman from '../assets/postman.png';
 /*
 
-  [ JSX 조건부 렌더링 ]
-
-  - JSX 안에서는 JavaScript 조건문을 활용해 특정 조건에 따라 UI 요소를 렌더링할 수 있다.
-  - JSX에서 조건부 렌더링을 할 때는 보통 삼항 연산자를 사용한다.
-  - 삼항 연산자 외에도 AND 연산자(&&)를 사용한 조건부 렌더링도 가능하다.
-  - AND 연산자를 사용한 조건부 렌더링은 조건이 true일 때만 렌더링하고, false일 때는 렌더링하지 않는다.
-  - AND 연산자를 사용한 조건부 렌더링은 조건이 false일 때 null을 반환하므로, 아무것도 렌더링하지 않는다.
+  ✅ JSX와 HTML의 차이점
+  
+  - JSX와 HTML은 비슷해 보이지만 몇 가지 중요한 차이점이 있습니다.
+  - JSX는 JavaScript의 확장이므로, HTML과 다르게 몇 가지 규칙이 있습니다.
 
 */
 
-function Test1() {
-  const isLoggedIn = true;
+// 1. HTML에서는 빈 태그도 <img>, <input>과 같이 닫지 않지만, JSX에서는 반드시 />로 self-closing 형식을 사용해야 합니다.
+const Diff1 = () => {
   return (
-    <div>
-      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign in.</h1>}
-    </div>
+    <>
+      {/*<img src={postman} alt="Example">*/} {/* 오류  */}
+      <img src={postman} alt="Example" />
+      {/*<input type="text" >*/}  {/* 오류  */}
+      <input type="text" />
+    </>
   );
 }
-// isLoggedIn이 true일 때 "Welcome back!" 메시지가 표시되고, 그렇지 않으면 "Please sign in." 메시지가 나타납니다.
 
 
-function Test2() {
-  const name = '리액트';
+
+// 2. 속성 이름의 차이 , HTML에서는 class, for와 같은 예약어가 있지만, JSX에서는 className, htmlFor처럼 변경하여 사용합니다.
+const Diff2 = () => {
   return (
       <div>
-          {name === '리액트' ? (
-              <h1>리액트입니다.</h1>
-          ) : (
-              <h2>리액트가 아닙니다.</h2>
-          )}
+        {/*<div class="container">class 미적용</div>*/}
+        <div className="container">class 적용</div>
+        
+        {/*<label for="inputId">Label</label>
+        <input id="inputId" />*/}
+        
+        <label htmlFor="inputId">Label</label>
+        <input id="inputId" />
+        
       </div>
   );
 }
+
+/*
+
+  3. JavaScript 표현식 사용 가능
+  
+    JSX 안에서는 자바스크립트 표현식을 쓸 수 있습니다. 자바스크립트 표현식을 작성하려면 JSX 내부에서 코드를 { }로 감싸면 됩니다. 
+    JSX에서는 { }를 사용해 JavaScript 표현식을 삽입할 수 있습니다.
+
+*/
+const Diff3 = () => {
+  
+  const productNm = "테스트 상품 이름";
+  const price = 1000000;
+ 
+  console.log(`javascript 표현식은 ${productNm} , ${price}로 사용`);
+
+  return (
+    <>
+      <h1>상품명 : {productNm}</h1>
+      <h2>가격 : {price}</h2>
+    </>
+  );
+
+}
+
+export { Diff1, Diff2, Diff3 }; 

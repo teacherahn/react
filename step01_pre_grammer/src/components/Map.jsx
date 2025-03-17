@@ -29,6 +29,7 @@ console.group("===  map 함수 ===");
 console.log(result1);
 console.log(result2);
 console.log(result3);
+console.log("");
 
 
 let jsonObject = [
@@ -49,19 +50,25 @@ let jsonObject = [
       "website": "anastasia.net",
     }
 ]
-jsonObject.map( (item) => {
-    console.log(item);
+
+jsonObject.map((item , index) => {
+    console.log(`<ul>`);
+    console.log(`<li key=${index}> id = ${item.id}</li>`);
+    console.log(`<li> name = ${item.name}</li>`);
+    console.log(`<li> username = ${item.username}</li>`);
+    console.log(`<li> email = ${item.email}</li>`);
+    console.log(`<li> phone = ${item.phone}</li>`);
+    console.log(`<li> website = ${item.website}</li>`);
+    console.log(`</ul>`);   
 } );
 
-jsonObject.map( (item , index) => {
-    console.log(item , index);
-} );
+
 console.groupEnd();
 
 function Map() {
     return (
         <div>
-        <h1>Map</h1>
+            <h1>Map</h1>
         </div>
     );
 }   
