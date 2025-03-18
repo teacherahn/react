@@ -10,35 +10,36 @@
 
 */
 
-
+// isLoggedIn이 true일 때 "Welcome back!" 메시지가 표시되고, 그렇지 않으면 "Please sign in." 메시지가 나타난다.
 const ConditionalRendering1 = () => {
-  const name = '리액트';
+  const isLoggedIn = true;
+  return (
+    <div>
+      {/* 명령어가 1줄일때는 () 생략 가능 */}
+      {isLoggedIn && <h1>Welcome back!</h1>}  {/* AND 연산자를 사용한 조건부 렌더링 */}
+      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign in.</h1>} {/* 삼항 연산자를 사용한 조건부 렌더링 */}
+    </div>
+  );
+}
+
+// main이면 메인화면을, 그렇지 않으면 메인화면이 아닙니다. 메시지를 표시한다.
+const ConditionalRendering2 = () => {
+  const pageName = 'main';
   return (
       <>
-          {name === '리액트' ? (
+          {pageName === 'main' ? (
             <div>
-              <h1>리액트입니다.</h1>
-              <p>리액트로 조건부 렌더링을 구현했습니다.</p>
+              <h1>메인화면입니다.</h1>
+              <p>리액트로 조건부 렌더링을 구현합니다.</p>
               <p><a href="https://reactjs.org">리액트 공식 사이트</a></p>
             </div>
           ) : (
             <div>
-              <h2>리액트가 아닙니다.</h2>
+              <h1>메인화면이 아닙니다.</h1>
             </div>  
           )}
       </>
   );
 }
-
-const ConditionalRendering2 = () => {
-  const isLoggedIn = true;
-  return (
-    <div>
-      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign in.</h1>} {/* 1줄일때는 () 생략 가능 */}
-    </div>
-  );
-}
-// isLoggedIn이 true일 때 "Welcome back!" 메시지가 표시되고, 그렇지 않으면 "Please sign in." 메시지가 나타납니다.
-
 
 export { ConditionalRendering1, ConditionalRendering2 }; 

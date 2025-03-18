@@ -18,6 +18,7 @@ useState Hook을 사용하여 함수형 컴포넌트에서 상태를 설정하�
 import React, { useState } from 'react';
 
 function Counter() {
+  
   const [count, setCount] = useState(0);
 
   return (

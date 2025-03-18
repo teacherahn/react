@@ -14,15 +14,11 @@
 
 */
 
-// 함수형 컴포넌트
-const FunctionComponent = () => {
-  return <p>Function Component!</p>;
-}
 
 
 /*
 
-  2-2) 클래스형 컴포넌트
+   2) 클래스형 컴포넌트
 
     - 클래스형 컴포넌트는 ES6 클래스를 사용하여 컴포넌트를 정의하며, this 키워드를 사용하여 상태와 생명주기 메서드를 관리한다.
     - React 컴포넌트를 class로 정의하며 extends React.Component를 상속받아야 한다.
@@ -33,14 +29,6 @@ const FunctionComponent = () => {
 
 */
 
-import React, { Component } from 'react';
-class ClassComponent extends Component {
-  render() {
-    return <p> Class Component!</p>;
-  }
-}
-
-export { FunctionComponent, ClassComponent }; 
 
 
 

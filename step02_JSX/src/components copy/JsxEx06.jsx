@@ -1,4 +1,3 @@
-import '../assets/myStyle.css';
 /*
 
     ✅ 인라인 스타일링
@@ -10,24 +9,4 @@ import '../assets/myStyle.css';
     
 
 */
-
-const Style1 = () => {
-    return (
-        <div style={{
-            backgroundColor: 'black',
-            color: 'aqua',
-            fontSize: '48px',
-            fontWeight: 'bold',
-            padding: 16 // 단위를 생략하면 px로 지정됩니다.
-        }}
-        >리액트</div>
-    );
-}
-
-
-const Style2 = () => {
-    return <div className="container">리액트</div>;
-}
-
-export { Style1, Style2 }; // App에서 구현한다.
   

@@ -1,6 +1,6 @@
 import './App.css'
 
-import OnClickEvent from './components/OnClickEvent'
+import OnClickEventHandling from './components/OnClickEventHandling'
 import OnChangeEvent from './components/OnChangeEvent'
 import OnFocusEvent from './components/OnFocusEvent'
 import MultiInputForm from './components/MultiInputForm'
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <h1>Clikc Event</h1>
-      <OnClickEvent />
+      <OnClickEventHandling />
       <hr />
       <h1>Change Event</h1>
       <OnChangeEvent/>
