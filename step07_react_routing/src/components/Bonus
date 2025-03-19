@@ -1,0 +1,158 @@
+
+설명
+useLocation은 현재 URL의 정보를 가져오는 훅이야. 경로(pathname), 쿼리 문자열(search), 해시(hash) 등을 확인할 수 있어. useSearchParams가 쿼리만 다룬다면, 이건 더 넓은 범위의 URL 상태를 체크할 수 있어.
+언제 써? 페이지 위치에 따라 조건부 렌더링을 하거나, 디버깅할 때 유용해.
+실습 목표: 링크를 클릭하면 pathname은 /test, search는 ?query=hello, hash는 #section1로 바뀌는 걸 확인해.
+활동: 학생들이 location.pathname에 따라 다른 메시지를 출력하도록 조건문 추가해보기.
+
+import { useLocation, Link } from 'react-router-dom';
+
+function LocationExample() {
+  const location = useLocation();
+
+  return (
+    <div>
+      <h2>현재 위치 확인하기</h2>
+      <p>경로: {location.pathname}</p>
+      <p>쿼리: {location.search}</p>
+      <p>해시: {location.hash}</p>
+      <nav>
+        <Link to="/test?query=hello#section1">테스트 링크</Link>
+        <Link to="/">홈</Link>
+      </nav>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<h1>홈</h1>} />
+      <Route path="/test" element={<LocationExample />} />
+    </Routes>
+  );
+}
+
+
+
+2. Route index
+설명
+index 속성은 중첩 라우팅에서 상위 경로에 기본적으로 렌더링할 컴포넌트를 지정해줘. 예를 들어, /products에 접속했을 때 기본적으로 제품 목록을 보여주고 싶을 때 유용해.
+언제 써? 중첩 라우팅에서 "기본 화면"을 설정할 때.
+실습 목표: /products로 가면 ProductList가, /products/details로 가면 ProductDetails가 보이게 해보기.
+활동: 학생들이 index를 다른 컴포넌트로 바꿔보고, <Outlet> 위치를 이동하며 결과 확인하기.
+
+import { Routes, Route, Link, Outlet } from 'react-router-dom';
+
+function ProductsLayout() {
+  return (
+    <div>
+      <h2>제품 페이지</h2>
+      <nav>
+        <Link to="/products">목록</Link>
+        <Link to="/products/details">상세</Link>
+      </nav>
+      <Outlet />
+    </div>
+  );
+}
+
+function ProductList() {
+  return <p>제품 목록입니다.</p>;
+}
+
+function ProductDetails() {
+  return <p>제품 상세 정보입니다.</p>;
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/products" element={<ProductsLayout />}>
+        <Route index element={<ProductList />} /> {/* 기본 경로 */}
+        <Route path="details" element={<ProductDetails />} />
+      </Route>
+    </Routes>
+  );
+}
+
+3. Protected Routes (라우팅 보호)
+설명
+특정 경로에 접근하려면 조건(예: 로그인 여부)을 만족해야 하도록 제한하는 방법이야. 주로 인증이 필요한 페이지(대시보드, 프로필 등)에 사용돼.
+Navigate 컴포넌트나 useNavigate 훅을 활용해서 조건에 따라 리다이렉트 처리해.
+실습 목표: isLoggedIn을 true/false로 바꿔보며 접근 허용/차단 확인하기.
+활동: 학생들이 isLoggedIn을 버튼으로 토글하는 기능 추가해보기.
+
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
+
+function ProtectedRoute({ children }) {
+  const isLoggedIn = false; // 로그인 상태 (테스트용으로 false)
+  return isLoggedIn ? children : <Navigate to="/login" />;
+}
+
+function Dashboard() {
+  return <h2>대시보드 (로그인 필요)</h2>;
+}
+
+function Login() {
+  return <h2>로그인 페이지</h2>;
+}
+
+function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/dashboard">대시보드</Link>
+        <Link to="/login">로그인</Link>
+      </nav>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/dashboard"
+          element={<ProtectedRoute><Dashboard /></ProtectedRoute>}
+        />
+      </Routes>
+    </>
+  );
+}
+
+4. lazy loading과 Suspense
+설명
+lazy loading은 컴포넌트를 필요할 때만 로드해서 초기 로딩 속도를 개선하는 기술이야. React의 React.lazy와 Suspense를 React Router와 함께 쓰면 경로별로 지연 로딩 가능해.
+언제 써? 앱이 커질 때 성능 최적화에 좋아.
+import { Routes, Route, Link } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+
+// 지연 로딩 컴포넌트
+const LazyHome = lazy(() => import('./components/LazyHome')); // 별도 파일로 가정
+const LazyAbout = lazy(() => import('./components/LazyAbout')); // 별도 파일로 가정
+
+function App() {
+  return (
+    <>
+      <nav>
+        <Link to="/">홈</Link>
+        <Link to="/about">어바웃</Link>
+      </nav>
+      <Suspense fallback={<div>로딩 중...</div>}>
+        <Routes>
+          <Route path="/" element={<LazyHome />} />
+          <Route path="/about" element={<LazyAbout />} />
+        </Routes>
+      </Suspense>
+    </>
+  );
+}
+
+// LazyHome.jsx (별도 파일 예시)
+export default function LazyHome() {
+  return <h2>홈 페이지 (지연 로딩됨)</h2>;
+}
+
+// LazyAbout.jsx (별도 파일 예시)
+export default function LazyAbout() {
+  return <h2>어바웃 페이지 (지연 로딩됨)</h2>;
+}
+
+실습 목표: 페이지 이동 시 "로딩 중..."이 보이고, 컴포넌트가 로드되는 걸 확인하기.
+활동: 학생들이 fallback에 커스텀 로딩 UI(예: 스피너)를 추가해보기.

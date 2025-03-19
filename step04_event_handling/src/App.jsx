@@ -1,24 +1,27 @@
 import './App.css'
 
 import OnClickEventHandling from './components/OnClickEventHandling'
-import OnChangeEvent from './components/OnChangeEvent'
-import OnFocusEvent from './components/OnFocusEvent'
-import MultiInputForm from './components/MultiInputForm'
+import OnChangeEventHandling from './components/OnChangeEventHandling'
+import OnFocusEventHandling from './components/OnFocusEventHandling'
+import MultiInputFormHandling from './components/MultiInputFormHandling'
+import ControlledComponent from './components/ControlledComponent'
 
 function App() {
   return (
     <>
-      <h1>Clikc Event</h1>
       <OnClickEventHandling />
       <hr />
-      <h1>Change Event</h1>
-      <OnChangeEvent/>
+    
+      <OnFocusEventHandling/>
       <hr/>
-      <h1>Focus Event</h1>
-      <OnFocusEvent/>
+      
+      <OnChangeEventHandling/>
       <hr/>
-      <h1>Multi Input Form</h1>
-      <MultiInputForm/>
+     
+      <MultiInputFormHandling/>
+      <hr/>
+     
+      <ControlledComponent/>
     </>
   )
 }
