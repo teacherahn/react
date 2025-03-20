@@ -18,7 +18,7 @@ const OnClickEventHandling = () => {
   // const [데이터 변수, 데이터 변수를 변경할 수 있는 함수] = useState(초기값);
   const [count, setCount] = useState(0); // useState Hook을 사용하여 count 상태를 생성하고 초기값을 0으로 설정
 
-  //handleClick 함수가 onClick 이벤트로 연결되어, 버튼을 클릭할 때마다 count 상태가 증가한다.
+  // handleClick 함수가 onClick 이벤트로 연결되어, 버튼을 클릭할 때마다 count 상태가 증가한다.
   
   // function before() {
   //   setCount(count + 1);

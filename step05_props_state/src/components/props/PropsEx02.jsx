@@ -7,7 +7,7 @@
   
     [ 예시 ]
     - 함수 props: onClick={setCount}
-    - 객체 props: user={{name: "mockUser", email: "
+    - 객체 props: user={{name: "mockUser", email: "}}
     - 배열 props: data={["a", "b", "c"]}  
     - 이벤트 props: onClick={handleClick}
     - 스타일 props: style={{color: "blue"}}
@@ -25,24 +25,29 @@ const ObjectButton = ({ user }) => {
 
 
 // 배열 props 추가 예시
-const ArrayButton = ({ user }) => {
+const ArrayButton = ({ users }) => {
   return (
     <ul>
-      {user.map((item) => (
-        <li key={item.id}>{item.id} : {item.name}</li>
+      {users.map((user) => (
+        <li key={user.id}>{user.id} : {user.name}</li>
       ))}
     </ul>
   );
 }
 
 // 스타일 props 추가 예시
+// return <p style={props.myStyle}>{prop.text}</p>;
+//const StyledText = (props) => {
 const StyledText = ({ text , myStyle }) => {
   return <p style={myStyle}>{text}</p>;
 };
 
 // 이벤트 props 추가 예시
-const EventButton = ({ onClick }) => {
-  return <button onClick={onClick}>Child</button>;
+
+//const EventButton = (props) => {
+//return <button onClick={props.onClickEvent}>Child</button>;
+const EventButton = ({ onClickEvent }) => {
+  return <button onClick={onClickEvent}>Child</button>;
 }
 
 // 함수 props 추가 예시
@@ -67,7 +72,7 @@ const PropsEx02 = () => {
       <hr/>
 
       <h3>✅ Props로 배열 전달</h3>
-      <ArrayButton user={[{id : 1 , name : "mockUser1"} , 
+      <ArrayButton users={[{id : 1 , name : "mockUser1"} , 
                           {id : 2 , name : "mockUser2"},
                           {id : 3 , name : "mockUser3"}
                         ]

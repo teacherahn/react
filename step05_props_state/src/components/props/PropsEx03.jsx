@@ -46,7 +46,7 @@ const PropsEx03 = () => {
       <div>
         <h3>✅ 다차원 컴포넌트 간 데이터 전달</h3>
         Text : <input type="text" value={message} onChange={handleClick} />
-       <ChildComponent1 inputData={message} />
+        <ChildComponent1 inputData={message} />
         <ChildComponent2 inputData={message} />
         <ChildComponent3 inputData={message} />
       </div>

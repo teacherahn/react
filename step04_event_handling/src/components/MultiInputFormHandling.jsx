@@ -8,7 +8,7 @@
   - 이벤트 객체의 target.name과 target.value를 사용하여 필드의 이름과 값을 확인한다.
 
 */
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function MultiInputFormHandling() {
 
@@ -19,12 +19,11 @@ function MultiInputFormHandling() {
     isFirst: false
   });
 
-  const [errors, setErrors] = useState({}); // 에러 메시지를 저장할 상태
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name] : value }); // [name] : value -> 동적 키로 상태 업데이트
   };
+
 
  
   const handleSubmit = (event) => {

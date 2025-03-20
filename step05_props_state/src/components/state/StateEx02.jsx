@@ -63,7 +63,6 @@ const StateEx02 = () => {
                 함수형 상태 업데이트: {count} <button onClick={handleFunctionUpdate}>Increment</button>
             </p>
             <p>
-                {/*인라인 상태 업데이트: {count} <button onClick={setCount(count + 1)}>Increment</button */}
                 인라인 상태 업데이트: {count} <button onClick={() => setCount(count + 1)}>Increment</button>     
             </p>
             <p>

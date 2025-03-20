@@ -26,8 +26,8 @@ const StateEx04 = () => {
 
   const handleAddTodo = () => {
     if (newTodoText.trim() === "") return;
-    const newItem = { id: Date.now(), text: newTodoText }; // 고유 ID 추가 (API 대비)
-    setTodos([...todos, newItem]); // 기존 목록에 새로운 항목 추가
+    const newTodo = { id: Date.now(), text: newTodoText }; // 고유 ID 추가 (API 대비)
+    setTodos([...todos, newTodo]); // 기존 목록에 새로운 항목 추가
     setNewTodoText("");
   };
 
@@ -59,7 +59,7 @@ const StateEx04 = () => {
 
   return (
     <div>
-      <h3>✅동적 목록 렌더링(훈련예시)</h3>
+      <h3>✅동적 목록 렌더링</h3>
       <input
         type="text"
         value={newTodoText}

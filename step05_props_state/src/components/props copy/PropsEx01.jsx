@@ -11,33 +11,19 @@
 
 */
 
-import { useState } from "react";
-
-
 // 일반 props 사용
-const PrintData1 = (props) => {
-  //console.log(props);  // 함수, 객체, 배열 등 복잡한 데이터도 전달 가능
-  //props.nickname = "testUser"; // props로 전달된 값을 직접 수정하려고 하면 에러가 발생한다.
-  return <p>nickname = {props.nickname} , email = {props.email}</p>;
-}
+// 함수, 객체, 배열 등 복잡한 데이터도 전달 가능
+// props로 전달된 값을 직접 수정하려고 하면 에러가 발생한다.
+
 
 // 구조 분해 할당 사용
-const PrintData2 = ({nickname , email}) => { 
-  //nickname = "testUser"; // 구조 분해 할당으로 전달된 값은 수정할 수는 있다. (단, props 자체는 수정 불가)
-  return <p>nickname = {nickname} , email = {email}</p>;
-}
+// 구조 분해 할당으로 전달된 값은 수정할 수는 있다. (단, props 자체는 수정 불가)
 
 
 const PropsEx01 = () => {
-
   return (
     <>
       <h3>✅ Props 기본 예시</h3>
-      <PrintData1 nickname="mockUser1" email="user1@gmail.com"/>
-      <PrintData1 nickname="mockUser2" email="user2@gmail.com"/>
-
-      <PrintData2 nickname="mockUser3" email="user3@gmail.com"/>
-      <PrintData2 nickname="mockUser4" email="user4@gmail.com"/>
     </>
   );
 }
