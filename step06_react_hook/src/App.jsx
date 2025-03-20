@@ -2,18 +2,22 @@
 import './App.css'
 
 import UseStateEx from './components/basic/UseStateEx'
-import UseEffectEx from './components/basic/UseEffectEx'
+import UseEffectEx from './components/basic/UseEffectEx01'
 import UseRefEx01 from './components/advanced/UseRefEx01'
 import UseRefEx02 from './components/advanced/UseRefEx02'
-import UseReducerEx from './components/advanced/useReducerEx'
-import { DomEx09 , DomEx10 , DomEx11 , DomEx12 , DomEx13 , DomEx14 , DomEx15 , DomEx16 , DomEx17} from './components/practice/AnswerSample'
+import UseReducerBefore from './components/advanced/UseReducerBefore'
+import UseReducerEx01 from './components/advanced/UseReducerEx01'
+import UseReducerEx02 from './components/advanced/UseReducerEx02'
+import UseEffectEx02 from './components/basic/UseEffectEx02'
+import TodoMainReducer from './components/practice_todo_list/TodoMainReducer'
+
 
 function App() {
 
   return (
     <>   
-      {/* 
-      <UseStateEx />
+     
+      {/* <UseStateEx />
       <hr />
       <UseEffectEx />
       <hr/>
@@ -21,24 +25,16 @@ function App() {
       <hr/>
       <UseRefEx02 />
       <hr/>
-      <UseReducerEx />*/}
-      <DomEx09 />
+      <UseReducerBefore />
       <hr/>
-      <DomEx10 />
+      <UseReducerEx01 />
       <hr/>
-      <DomEx11 />
-      <hr/>
-      <DomEx12 />
-      <hr/>
-      <DomEx13 />
-      <hr/>
-      <DomEx14 />
-      <hr/>
-      <DomEx15 />
-      <hr/>
-      <DomEx16 />
-        
-
+      <UseReducerEx02 />
+      <hr/>*/}
+<UseReducerEx02 />
+      {/* <TodoMainReducer /> */}
+     
+      
 
     </>
   )

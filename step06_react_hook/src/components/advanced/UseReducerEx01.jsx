@@ -15,10 +15,12 @@
 */
 
 
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 
-const initialState = { count: 0 };
 
+const initialState = { count : 0 };
+
+// 재사용 가능한 리듀서 함수
 const reducer = (state, action) => {
   console.log("state : ", state);
   console.log("action : ", action);
@@ -27,31 +29,30 @@ const reducer = (state, action) => {
   console.log("");
   
   switch (action.type) {
-    case "increment":
+    case "INCREMENT":
       return { count: state.count + 1 };
-    case "decrement":
+    case "DECREMENT":
       return { count: state.count - 1 };
-    case "reset":
+    case "RESET":
       return { count: 0 };
     default:
       return state;
   }
 }
 
-const UseReducerEx = () => {
+const UseReducerEx01 = () => {
   // useReducer(reducer, initialState) : reducer 함수와 초기 상태를 인자로 받아 상태 값과 상태를 변경하는 함수를 반환한다.
-  const [state, dispatch] = useReducer(reducer, initialState);
-
-  // before 보여주면 되겠다.
+  const [variable, dispatch] = useReducer(reducer, initialState);
 
   return (
     <div>
-      <p>Count: {state.count}</p>
-      <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
-      <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
-      <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+      <h3>✅useReducer</h3>
+      <p>Count: {variable.count}</p>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>Increment</button>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>Decrement</button>
+      <button onClick={() => dispatch({ type: "RESET" })}>Reset</button>
     </div>
   );
 }
 
-export default UseReducerEx;
+export default UseReducerEx01;

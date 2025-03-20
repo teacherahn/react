@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { useRef } from 'react';
 
 
-
 /*
 
-  ✅ React Advanced Hook (useRef)
+   ✅ React Advanced Hook (useRef)
 
     [ 변수 vs useState vs useRef ]
 
@@ -18,10 +17,8 @@ import { useRef } from 'react';
 
 function UseRefEx02() {
 
-  let nomalVar = 0;
-  
+  let nomalVar = 0; 
   const [state, setState] = useState(0);
-
   const ref = useRef(0);
   
   

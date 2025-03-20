@@ -22,7 +22,7 @@
 import { useState, useEffect } from 'react';
 
 
-const UseEffectEx = () => {
+const UseEffectEx01 = () => {
   
   // componentDidMount
   useEffect(() => {
@@ -42,7 +42,7 @@ const UseEffectEx = () => {
       console.log("컴포넌트가 사라지기 전에 실행");
     };
 
-  }, [count]); 
+  }, [count]);  
 
   return (
     <div>
@@ -52,4 +52,4 @@ const UseEffectEx = () => {
   );
 }
 
-export default UseEffectEx;
+export default UseEffectEx01;

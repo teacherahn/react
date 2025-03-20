@@ -1,0 +1,112 @@
+import { useReducer } from "react";
+
+// 초기 상태: 장바구니에 담긴 아이템 목록
+const initialState = {
+    cart: [
+      { id: 1, name: "노트북", price: 1000, quantity: 1 },
+      { id: 2, name: "마우스", price: 20, quantity: 2 },
+    ],
+    total: 1040, // 초기 총액 (1000 + 20*2)
+  };
+  
+  // 리듀서 함수: 장바구니 상태를 관리
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "ADD_ITEM":
+        // 새 아이템 추가
+        const newItem = {
+          id: Date.now(), // 고유 ID로 현재 시간 사용
+          name: action.name,
+          price: action.price,
+          quantity: 1,
+        };
+        return {
+          cart: [...state.cart, newItem],
+          total: state.total + action.price,
+        };
+  
+      case "INCREASE_QUANTITY":
+        // 수량 증가
+        const increasedCart = state.cart.map((item) =>
+          item.id === action.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        return {
+          cart: increasedCart,
+          total: state.total + state.cart.find((item) => item.id === action.id).price,
+        };
+  
+      case "DECREASE_QUANTITY":
+        // 수량 감소 (0 이하면 삭제)
+        const updatedCart = state.cart
+          .map((item) =>
+            item.id === action.id
+              ? { ...item, quantity: item.quantity - 1 }
+              : item
+          )
+          .filter((item) => item.quantity > 0);
+        return {
+          cart: updatedCart,
+          total: state.total - state.cart.find((item) => item.id === action.id).price,
+        };
+  
+      case "REMOVE_ITEM":
+        // 아이템 삭제
+        const itemToRemove = state.cart.find((item) => item.id === action.id);
+        return {
+          cart: state.cart.filter((item) => item.id !== action.id),
+          total: state.total - itemToRemove.price * itemToRemove.quantity,
+        };
+  
+      default:
+        return state;
+    }
+  };
+  
+  // 컴포넌트
+  const UseReducerEx02 = () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+  
+    // 새 아이템 추가 함수 (수업용으로 간단히 하드코딩)
+    const addItem = () => {
+      dispatch({
+        type: "ADD_ITEM",
+        name: "키보드",
+        price: 50,
+      });
+    };
+  
+    return (
+      <div>
+        <h3>🛒 Shopping Cart with useReducer</h3>
+        <button onClick={addItem}>Add Keyboard ($50)</button>
+        <h4>Total: ${state.total}</h4>
+        <ul>
+          {state.cart.map((item) => (
+            <li key={item.id}>
+              {item.name} - ${item.price} x {item.quantity} = $
+              {item.price * item.quantity}
+              <button
+                onClick={() => dispatch({ type: "INCREASE_QUANTITY", id: item.id })}
+              >
+                +
+              </button>
+              <button
+                onClick={() => dispatch({ type: "DECREASE_QUANTITY", id: item.id })}
+              >
+                -
+              </button>
+              <button
+                onClick={() => dispatch({ type: "REMOVE_ITEM", id: item.id })}
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+  
+  export default UseReducerEx02;

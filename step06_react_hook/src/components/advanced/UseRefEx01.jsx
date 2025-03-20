@@ -19,7 +19,6 @@ import { useRef } from 'react';
 
 function UseRefEx01() {
 
-  
   const ref = useRef(100); // useRef를 사용하여 생성한 객체를 반환한다. 
   
   const increment = () => {
@@ -29,10 +28,10 @@ function UseRefEx01() {
 
   return (
     <>
-    <div>
-      <h3>✅useRef basic</h3>
-      <p>ref: {ref.current} <button onClick={increment}>Increment</button></p>
-    </div>
+      <div>
+        <h3>✅useRef basic</h3>
+        <p>ref: {ref.current} <button onClick={increment}>Increment</button></p>
+      </div>
     </>
   );
 
