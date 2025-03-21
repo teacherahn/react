@@ -7,6 +7,7 @@ const NewTodo = ({onCreate}) => {
 
     const handleClick = () => {
         if (content.trim() === '') {
+            alert("할 일을 입력하세요");
             return;
         }
         onCreate(content);

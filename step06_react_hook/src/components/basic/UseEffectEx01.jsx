@@ -24,25 +24,27 @@ import { useState, useEffect } from 'react';
 
 const UseEffectEx01 = () => {
   
+  // console.log("컴포넌트가 렌더링될 때마다 실행");
+
   // componentDidMount
   useEffect(() => {
-    console.log("컴포넌트가 처음 렌더링될 때만 실행");  
+    console.log("(처음 한번)컴포넌트가 처음 렌더링될 때만 실행");  
   }, []); // 빈 의존성 배열 > 컴포넌트가 처음 렌더링될 때만 실행
 
   
   const [count, setCount] = useState(0);
   
    // componentDidMount + componentDidUpdate
-  useEffect(() => {
+  // useEffect(() => {
     
-    console.log("count가 변경될때 실행");  
+  //   console.log("execute useEffect");  
 
-    // componentWillUnmount
-    return () => {
-      console.log("컴포넌트가 사라지기 전에 실행");
-    };
+  //   // componentWillUnmount //컴포넌트가 사라질 때 정리(clean-up)할 때 사용
+  //   return () => {
+  //     console.log("return : cleanup");
+  //   };
 
-  }, [count]);  
+  // }, [count]); // 최초 한번 + 의존성 배열이 변경될 때마다 실행
 
   return (
     <div>

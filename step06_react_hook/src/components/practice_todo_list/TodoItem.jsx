@@ -23,12 +23,12 @@ const TodoItem = ({index , todo , onDelete , onUpdate}) => {
             {isUpdate ? (  
                 <p>
                     {index+1} . 
-                <input 
-                    type="text"
-                    value={newText}
-                    onChange={(e) => setNewText(e.target.value)}    
-                />
-                <button onClick={onSaveUpdate}>저장</button>
+                    <input 
+                        type="text"
+                        value={newText}
+                        onChange={(e) => setNewText(e.target.value)}    
+                    />
+                    <button onClick={onSaveUpdate}>저장</button>
                 </p>
             ) : (
                 <p>

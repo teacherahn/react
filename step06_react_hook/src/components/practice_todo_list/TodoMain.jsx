@@ -9,10 +9,10 @@ import Footer from "./Footer";
 
 const TodoMain = () => {  
 
-  const [todos, setTodos] = useState([]);
-  const idRef = useRef(0);
+  const [todos, setTodos] = useState([]); // 할 일 목록
+  const idRef = useRef(0); // id 값 관리
   
-  const onCreate = (content) => {
+  const onCreate = (content) => { // 할 일 추가
      const newTodo = {
       id : idRef.current++, 
       text: content, 
@@ -21,11 +21,11 @@ const TodoMain = () => {
     setTodos([newTodo , ...todos]);
   }
 
-  const onDelete = (id) => {
+  const onDelete = (id) => { // 할 일 삭제
     setTodos(todos.filter(todo => todo.id !== id));
   }
 
-  const onUpdate = (id , newText) => {
+  const onUpdate = (id , newText) => { // 할 일 수정
     setTodos(todos.map(todo => todo.id === id ? {...todo , text : newText , date : Date.now()} : todo));
   }
 
