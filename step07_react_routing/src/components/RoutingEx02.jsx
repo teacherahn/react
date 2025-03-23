@@ -22,7 +22,7 @@ import { Route, Routes, Link, useParams, useSearchParams } from 'react-router-do
 
 function UserProfile() {
   const { username } = useParams();
-  return <h2>Welcome, {username}!</h2>;
+  return <h2>View : {username} Profile Page!</h2>;
 }
 
 
@@ -32,8 +32,9 @@ function ProductDetail() {
 
   return (
     <div>
-      <h2>Category: {category}</h2>
-      <p>Product ID: {productId}</p>
+      <h2>View : ProductDetail Page!</h2>
+      <p>category param : {category}</p>
+      <p>productId pram: {productId}</p>
     </div>
   );
 
@@ -42,7 +43,7 @@ function ProductDetail() {
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
-  const query = searchParams.get("query");
+  const query = searchParams.get("q");
 
   return <h2>Search Results for: {query}</h2>;
 }
@@ -50,39 +51,31 @@ function SearchPage() {
 function RoutingEx02() {
   return (
     <>
+      <hr/>
+      <Routes>
+        <Route path="/user/:username" element={<UserProfile />} />
+        <Route path="/products/:category/:productId" element={<ProductDetail />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+      <hr/>
 
       {/* path="/user/:username" 형태로 경로를 설정하면 username 부분이 파라미터로 받아집니다. */}
       {/* useParams 훅을 사용해 URL 파라미터를 UserProfile 컴포넌트에서 받아와 사용자 이름을 동적으로 렌더링합니다. */}
+      <h3>✅ URL 파라미터 </h3>
       <nav>
-        <Link to="/user/johndoe">John's Profile</Link>
-        <Link to="/user/janedoe">Jane's Profile</Link>
-      </nav>
-      <Routes>
-        <Route path="/user/:username" element={<UserProfile />} />
-      </Routes>
-
-      <nav>
-        <Link to="/products/electronics/1">Electronics Product 1</Link>
+        <Link to="/user/mockUser1">mockUser1 Profile</Link><br/>
+        <Link to="/user/mockUser2">mockUser2 Profile</Link><br/>
+        <Link to="/products/electronics/1">Electronics Product 1</Link><br/>
         <Link to="/products/books/2">Book Product 2</Link>
       </nav>
-
-      {/*
-          URL에서 category와 productId 두 가지 파라미터를 받아옵니다.
-          useParams 훅으로 파라미터 값을 ProductDetail 컴포넌트에서 받아 카테고리와 제품 ID를 동적으로 표시합니다. 
-      */}
-      <Routes>
-        <Route path="/products/:category/:productId" element={<ProductDetail />} />
-      </Routes>
-
-
+      <hr/>
+     
+      <h3>✅ 쿼리 파라미터</h3>
       <nav>
-        <Link to="/search?query=react">Search for "react"</Link>
-        <Link to="/search?query=router">Search for "router"</Link>
+        <Link to="/search?q=react">Search React</Link><br/>
+        <Link to="/search?q=router">Search Router</Link>
       </nav>
-      <Routes>
-        <Route path="/search" element={<SearchPage />} />
-      </Routes>
-
+   
     </>
   );
 }

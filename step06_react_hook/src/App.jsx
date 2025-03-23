@@ -10,7 +10,10 @@ import UseReducerEx01 from './components/advanced/UseReducerEx01'
 import UseReducerEx02 from './components/advanced/UseReducerEx02'
 import UseEffectEx02 from './components/basic/UseEffectEx02'
 import TodoMainReducer from './components/practice_todo_list/TodoMainReducer'
+import UseCallbackEx from './components/advanced/UseCallbackEx'
 import UseMemoEx from './components/advanced/UseMemoEx'
+import UseContextBefore from './components/advanced/UseContextBefore'
+import UseContextEx from './components/advanced/UseContextEx'
 
 function App() {
 
@@ -27,13 +30,19 @@ function App() {
       <hr/>
       <UseReducerBefore />
       <hr/>
+      */}
       <UseReducerEx01 />
       <hr/>
       <UseReducerEx02 />
       <hr/>
       <UseEffectEx01 />
-      */}
-     <UseMemoEx/>
+      <hr/>
+      <UseCallbackEx/>
+      <hr/>
+
+     <UseContextBefore/>
+     <hr/>
+     <UseContextEx/>
       
 
     </>
