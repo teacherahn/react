@@ -32,9 +32,6 @@
 
 */
  
-
-import { Route, Routes, Link , NavLink } from 'react-router-dom';
-
 const Main = () => {
   return <h1>View : Main Page</h1>;
 }
@@ -71,40 +68,16 @@ const RoutingEx01 = () => {
   return (
     <>
       <h3>✅ Link </h3>
-      <nav>
-        <Link to="/">Main </Link>  
-        <Link to="/signup">Signup </Link> 
-        <Link to="/signin">Signin </Link>
-      </nav>
+     
 
       {/* NavLink 컴포넌트를 사용해 현재 활성화된 링크를 자동으로 인식하고, isActive 속성을 활용해 스타일을 적용할 수 있습니다. */}
       <h3>✅ NavLink </h3>
-      <nav >
-        <NavLink to="/userManagement" style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}>
-          UserManagement  
-        </NavLink><br/>
-        <NavLink to="/groupManagement" style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}>
-          GroupManagement  
-        </NavLink><br/>
-        <NavLink to="/authManagement" style={({ isActive }) => ({ color: isActive ? 'red' : 'black' })}>
-          AuthManagement
-        </NavLink>
-      </nav>
+      
     
       {/* Route 컴포넌트로 경로와 컴포넌트를 매핑합니다. */}
       {/* Routes 컴포넌트로 Route 컴포넌트를 감싸서 페이지 이동을 설정합니다. */}
-      <hr/>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/userManagement" element={<UserManagement />} />
-        <Route path="/groupManagement" element={<GroupManagement />} />
-        <Route path="/authManagement" element={<AuthManagement />} />
-        <Route path="*" element={<NotFound />} /> {/* 404 페이지 */}
-      </Routes>
-      <hr/>
-      </>
+    
+    </>
   );
 }
 

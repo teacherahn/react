@@ -1,6 +1,4 @@
-
-import React, { useState } from 'react';
-import { Navigate, Route, Routes, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 /*
 
@@ -44,29 +42,17 @@ const NotFound = () => {
 }
 
 const Products = () => {
-  const { category, productId } = useParams();
   return (
     <div>
       <h1>🛍️ Products Page</h1>
-      <p>category param : {category}</p>
-      <p>productId param : {productId}</p>
     </div>
   );
 }
 
 const WithState = () => {
-  const location = useLocation();
-  const state = location.state;
-  console.log('location : ', location);
-  console.log('state : ', state);
-  console.log('pathname : ', location.pathname);
-
   return (
     <div>
       <h1>View : With State Page</h1>
-      <p>price : {state.price}</p>
-      <p>brand : {state.brand}</p>
-      <p>inStock : {state.inStock ? 'In Stock' : 'Out of Stock'}</p>
     </div>
   );
 }
@@ -76,48 +62,31 @@ const WithState = () => {
 const RoutingEx03 = () => {
 
   const [url ,setUrl] = useState('');
-  const navigate = useNavigate(); // useNavigate 훅을 사용해 경로를 이동할 수 있습니다.
+  // useNavigate 훅을 사용해 경로를 이동할 수 있습니다.
 
   const handleClick = () => {
-    navigate(url); // navigate 함수에 경로를 전달하면 해당 경로로 이동합니다.
+   // navigate 함수에 경로를 전달하면 해당 경로로 이동합니다.
   }
 
   const goBack = () => {
-    //navigate(0);// 새로고침
-    navigate(-1); // 뒤로가기
-    //navigate(1); // 앞으로가기
+   // 뒤로가기
   };
 
   // replace: true 옵션은 히스토리 스택을 대체합니다.
   const goWithReplace = () => {
-    //navigate('/signup');                  // [ "/", "/signin" , "/signup" ]
-    navigate('/signup', { replace: true }); // [ "/", {replace}"/signup"]
+    // [ "/", "/signin" , "/signup" ]
+    // [ "/", "/signup"]
   };
 
   // state는 상태를 전달할 때 사용합니다.
   const goWithState = () => {
-    navigate('/withState', {
-      state: { price: 99900, brand: 'Samsung', inStock: true }, 
-    });
   };
 
   const goWithReplaceAndState = () => {
-    navigate('/withState', {
-      replace: true,
-      state: { price: 100000, brand: 'Apple', inStock: false },
-    });
   };
 
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/products/:category/:productId" element={<Products />} />
-        <Route path="/withState" element={<WithState />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
 
       <p>
         URL : <input 

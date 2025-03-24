@@ -1,24 +1,40 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-function CreatePost() {
+/*
+
+  ✅ Axios Post
+
+  - axios.post(url, data, config) : POST 요청을 수행한다.
+  - axios.post() 메서드는 URL, 데이터, 설정을 인수로 받는다.
+  - axios.post() 메서드는 async/await 또는 Promise를 사용한다.
+
+*/
+
+const AxiosPost = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // 기본 동작을 막음
     try {
+      // axios.post(url, data, config);
       const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-        title,
-        body,
+        title, //title : title, (key와 value가 같으면 하나만 써도 됨)
+        body, // body : body,
+        id : 101,
         userId: 1,
       });
-      setMessage(`새 글 생성됨! ID: ${response.data.id}`);
       setTitle('');
       setBody('');
+
+      console.log("작성 완료!");
+      console.log(response);
+      console.log(response.data);
+
     } catch (error) {
-      setMessage(`에러: ${error.message}`);
+      console.log(error);
+      console.log(error.message);
     }
   };
 
@@ -26,24 +42,25 @@ function CreatePost() {
     <div>
       <h2>새 글 작성</h2>
       <form onSubmit={handleSubmit}>
-        <input
+        <p>
+        제목 : <input
           type="text"
           placeholder="제목"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <br />
-        <textarea
-          placeholder="내용"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
-        <br />
+        </p>
+        <p>
+          내용 : <textarea
+            placeholder="내용"
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          />
+        </p>
         <button type="submit">작성</button>
       </form>
-      {message && <p>{message}</p>}
     </div>
   );
 }
 
-export default CreatePost;
+export default AxiosPost;

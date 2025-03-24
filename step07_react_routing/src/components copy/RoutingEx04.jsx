@@ -8,9 +8,6 @@
 
 */
 
-
-import { Route, Routes, Link, Outlet } from 'react-router-dom';
-
 const ProductList = () => {
   return <h1>View : Product List</h1>;
 }
@@ -26,16 +23,8 @@ const ProductReviews = () => {
 const ProductPage = () => {
   return (
     <div>
-      <h1>Product Page</h1>
-      <nav>
-        <Link to="list" style={{ marginRight: '10px' }}>List</Link>
-        <Link to="details" style={{ marginRight: '10px' }}>Details</Link>
-        <Link to="reviews">Reviews</Link>
-      </nav>
-      {/* 여기로 중첩된 컴포넌트가 렌더링됩니다. */}
-      <hr/>
-      <Outlet /> 
-      <hr/>
+      <h1>Product Page</h1>  
+      {/* 여기로 중첩된 컴포넌트가 렌더링됩니다. */}  
     </div>
   );
 }
@@ -44,13 +33,6 @@ const RoutingEx04 = () => {
   return (
     <>
       <h3>✅ Nested Routes(중첩 라우트)</h3>
-      <Routes>
-        <Route path="/products" element={<ProductPage />}>
-          <Route path="list" element={<ProductList />} />
-          <Route path="details" element={<ProductDetails />} />
-          <Route path="reviews" element={<ProductReviews />} />
-        </Route>
-      </Routes>
     </>
   );
 }

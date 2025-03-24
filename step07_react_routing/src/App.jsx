@@ -11,14 +11,12 @@ function App() {
   
   return (
     <>
-    {/* <RoutingEx01 /> 
+    {/*}
+     <RoutingEx01 />
         <RoutingEx02 />
         <RoutingEx03 />
-        <RoutingEx04 />
-    */}
-      
-      <RoutingEx03 />
-      <hr/>
+        <RoutingEx04 />*/}
+ <RoutingEx01 />
     </>
   )
 }
