@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 /*
 
@@ -12,36 +11,14 @@ import axios from 'axios';
 */
 
 const AxiosPost = () => {
+  
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
-
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // 기본 동작을 막음
-    try {
-      // axios.post(url, data, config);
-      const response = await axios.post('https://jsonplaceholder.typicode.com/posts', {
-        title, //title : title, (key와 value가 같으면 하나만 써도 됨)
-        body, // body : body,
-        id : 101,
-        userId: 1,
-      });
-      setTitle('');
-      setBody('');
-
-      console.log("작성 완료!");
-      console.log(response);
-      console.log(response.data);
-
-    } catch (error) {
-      console.log(error);
-      console.log(error.message);
-    }
-  };
 
   return (
     <div>
       <h2>게시글 작성</h2>
-      <form onSubmit={handleSubmit}>
+      <form>
         <p>
         제목 : <input
           type="text"

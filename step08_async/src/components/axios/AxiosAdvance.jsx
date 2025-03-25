@@ -39,7 +39,7 @@ const AxiosAdvance = () => {
 
   return (
     <div>
-      <h2>글 목록</h2>
+      <h2>게시글 목록</h2>
       <ul>
         {posts.map(post => (
           <li key={post.id}>

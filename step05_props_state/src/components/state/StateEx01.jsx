@@ -22,7 +22,6 @@ const StateEx01 = () => {
     const [변수, 세터] = useState(0);  // 화면 렌더링이 자동으로 된다. useState는 자주 변경되는 것을 저장할 때 사용
      //let [a,b] = [1,2]; //a=1, b=2
 
-
     const handleClick = () => {
         //변수 = 변수 + 1; // 리액트가 감지하지 못한다. 렌더링 x
         세터(변수 + 1); // setter 함수를 사용하여 state를 변경한다. > 리액트가 감지하여 렌더링 o

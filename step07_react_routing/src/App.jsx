@@ -16,7 +16,7 @@ function App() {
         <RoutingEx02 />
         <RoutingEx03 />
         <RoutingEx04 />*/}
- <RoutingEx01 />
+ <RoutingEx04 />
     </>
   )
 }

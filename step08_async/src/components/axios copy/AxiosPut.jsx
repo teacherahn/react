@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 
 /*
 
@@ -16,32 +15,10 @@ const AxiosPut = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
-  const handleUpdate = async (e) => {
-    e.preventDefault(); // 기본 동작을 막음
-    try {
-      const response = await axios.put(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        id,
-        title,
-        body,
-        userId: 1,
-      });
-      console.log(`글 ID ${id} 수정완료`);
-      console.log(response);
-      console.log(response.data);
-      setId('');
-      setTitle('');
-      setBody('');
-      
-    } catch (error) {
-      console.log(error);
-      console.log(error.message);
-    }
-  } 
-
   return (
     <div>
       <h2>게시글 수정</h2>
-      <form onSubmit={handleUpdate}>
+      <form>
         <p>
           ID : <input
             type="number"

@@ -1,7 +1,5 @@
 
 import './App.css'
-import Dashboard from './components/fetch/FetchDashboard'
-import AxiosDashboard from './components/axios/AxiosDashboard'
 import AxiosGet from './components/axios/AxiosGet'
 import AxiosPost from './components/axios/AxiosPost'
 import AxiosPut from './components/axios/AxiosPut'  
@@ -11,13 +9,13 @@ function App() {
  
   return (
     <>
-      {/*
-      <AxiosGet />
+      
+      {/* <AxiosGet />
       <AxiosPost />
       <AxiosPut />
-      <AxiosDelete />
-      <AxiosAdvance /> */}
-      <AxiosAdvance />
+      <AxiosDelete /> 
+      <AxiosAdvance />*/} 
+      <AxiosGet />
     </>
   )
 }
