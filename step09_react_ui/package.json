@@ -1,5 +1,5 @@
 {
-  "name": "step09_mui",
+  "name": "step09_react_ui",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@mui/icons-material": "^6.4.8",
-    "@mui/material": "^6.4.9",
-    "@mui/x-charts": "^7.28.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",

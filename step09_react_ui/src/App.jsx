@@ -1,12 +1,7 @@
-import { Routes, Route, Link } from 'react-router-dom';
-import SimpleForm from './components/SimpleForm';
-import PostList from './components/PostList';
-import { AppBar, Toolbar, Typography, Button , TextField, CardMedia, Card, CardContent, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, Paper, IconButton, MenuItem, Menu, Tabs, Tab, Box, Snackbar, Grid, Checkbox } from '@mui/material';
+
 import { useState } from 'react';
-import BoardPage from './components/step02_minipjt/BoardPage';
-import LoginPage from './components/step02_minipjt/LoginPage';
-import DashboardPage from './components/step02_minipjt/DashboardPage';
-import Tester from './components/step02_minipjt/Tester';
+
+import LineChartEx from './components/step01_recharts/LineChartEx';
 
 function App() {
  
@@ -24,6 +19,10 @@ function App() {
 
   return (
    <>
+
+      <LineChartEx />
+
+
     {/* <Button variant="text">Text</Button>
     <Button variant="contained">Contained</Button>
     <Button variant="outlined">Outlined</Button>
@@ -136,7 +135,7 @@ function App() {
 <Checkbox {...Label} />
 <Checkbox {...label} disabled />
 <Checkbox {...label} disabled checked /> */}
-  <Tester />
+  {/* <Tester /> */}
    </>
 
   )
