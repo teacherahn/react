@@ -2,6 +2,11 @@
 import { useState } from 'react';
 
 import LineChartEx from './components/step01_recharts/LineChartEx';
+import RadarChartEx from './components/step01_recharts/RadarChartEx';
+import ScatterChartEx from './components/step01_recharts/ScatterChartEx';
+import TreemapEx from './components/step01_recharts/TreemapEx';
+import CustomActiveShapePieChartEx from './components/step01_recharts/CustomActiveShapePieChartEx';
+import ComposedChartWithAxisLabelsEx from './components/step01_recharts/ComposedChartWithAxisLabelsEx';
 
 function App() {
  
@@ -21,7 +26,16 @@ function App() {
    <>
 
       <LineChartEx />
-
+      <hr/>
+      <RadarChartEx/>
+      <hr/>
+      <ScatterChartEx/>
+      <hr/>
+      <TreemapEx />
+      <hr/>
+      <CustomActiveShapePieChartEx />
+      <hr/>
+      <ComposedChartWithAxisLabelsEx/>
 
     {/* <Button variant="text">Text</Button>
     <Button variant="contained">Contained</Button>
