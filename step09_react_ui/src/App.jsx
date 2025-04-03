@@ -7,152 +7,84 @@ import ScatterChartEx from './components/step01_recharts/ScatterChartEx';
 import TreemapEx from './components/step01_recharts/TreemapEx';
 import CustomActiveShapePieChartEx from './components/step01_recharts/CustomActiveShapePieChartEx';
 import ComposedChartWithAxisLabelsEx from './components/step01_recharts/ComposedChartWithAxisLabelsEx';
-
+import VolumeDown from '@mui/icons-material/VolumeDown';
+import VolumeUp from '@mui/icons-material/VolumeUp';
+import { TextField , Button , Modal, Stack, Slider, Box, Typography   } from '@mui/material';
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 function App() {
- 
-
-  // appbar
-  const [anchorEl, setAnchorEl] = useState(null);
-  const handleMenu = (e) => setAnchorEl(e.currentTarget);
-  const handleClose = () => setAnchorEl(null);
-
-  //tab
-  const [value, setValue] = useState(0);
-
-  // snackbar
   const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const [value, setValue] = useState(30);
+
 
   return (
-   <>
+    <div>
 
-      <LineChartEx />
+      {/* <LineChartEx />
       <hr/>
       <RadarChartEx/>
       <hr/>
       <ScatterChartEx/>
       <hr/>
       <TreemapEx />
-      <hr/>
+      <hr/>     
       <CustomActiveShapePieChartEx />
       <hr/>
-      <ComposedChartWithAxisLabelsEx/>
+      <ComposedChartWithAxisLabelsEx/>  */}
 
-    {/* <Button variant="text">Text</Button>
-    <Button variant="contained">Contained</Button>
-    <Button variant="outlined">Outlined</Button>
-    <Button variant="contained" color="secondary">Secondary</Button>
-    <Button variant="contained" disabled>Disabled</Button>
-    <Button variant="contained" size="large" onClick={() => alert("Clicked!")}>
-      Click Me
-    </Button>
+<TextField id="outlined-basic" label="Outlined" variant="outlined" />
+<TextField id="filled-basic" label="Filled" variant="filled" />
+<TextField id="standard-basic" label="Standard" variant="standard" />
 
-    <hr/>
+<Button variant="text">Text</Button>
+<Button variant="contained">Contained</Button>
+<Button variant="outlined">Outlined</Button>
+<Button>Primary</Button>
+<Button disabled>Disabled</Button>
+<Button href="#text-buttons">Link</Button>
 
-    <TextField label="이름" variant="outlined" />
-    <TextField label="이메일" variant="filled" />
-    <TextField label="비밀번호" type="password" />
-    <TextField label="에러 있음" error helperText="입력값이 잘못되었습니다." />
 
-    <hr/>
+<Box sx={{ width: 200 }}>
+      <Stack spacing={2} direction="row" sx={{ alignItems: 'center', mb: 1 }}>
+        <VolumeDown />
+        <Slider aria-label="Volume" value={value} onChange={(e) => setValue(e.target.value)} />
+        <VolumeUp />
+      </Stack>
+      <Slider disabled defaultValue={30} aria-label="Disabled slider" />
+    </Box>
 
-    <Card sx={{ maxWidth: 300 }}>
-    <CardMedia
-      component="img"
-      height="140"
-      image="https://source.unsplash.com/random"
-      alt="Random"
-    />
-      <CardContent>
-        <Typography gutterBottom variant="h5">제목</Typography>
-        <Typography variant="body2" color="text.secondary">
-          여기에 카드 설명이 들어갑니다.
-        </Typography>
-      </CardContent>
-    </Card>
 
-    <hr/>
+    <Button onClick={handleOpen}>Open modal</Button>
+<Modal
+  open={open}
+  onClose={handleClose}
+  aria-labelledby="modal-modal-title"
+  aria-describedby="modal-modal-description"
+>
+  <Box sx={style}>
+    <Typography id="modal-modal-title" variant="h6" component="h2">
+      Text in a modal
+    </Typography>
+    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+      Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+    </Typography>
+  </Box>
+</Modal>
 
-    <TableContainer component={Paper}>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>이름</TableCell>
-          <TableCell>나이</TableCell>
-          <TableCell>직업</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {[
-          { name: "홍길동", age: 25, job: "개발자" },
-          { name: "김영희", age: 30, job: "디자이너" }
-        ].map((row, idx) => (
-          <TableRow key={idx}>
-            <TableCell>{row.name}</TableCell>
-            <TableCell>{row.age}</TableCell>
-            <TableCell>{row.job}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  </TableContainer>
 
-  <hr/>
-
-  <AppBar position="static">
-      <Toolbar>
-        <IconButton edge="start" color="inherit" onClick={handleMenu}>
-           <MenuIcon /> aaa
-        </IconButton>
-        <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
-          <MenuItem onClick={handleClose}>홈</MenuItem>
-          <MenuItem onClick={handleClose}>로그아웃</MenuItem>
-        </Menu>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          MUI 데모
-        </Typography>
-      </Toolbar>
-    </AppBar>
-
-    <hr/>
-
-    <Tabs value={value} onChange={(e, newVal) => setValue(newVal)}>
-        <Tab label="첫번째" />
-        <Tab label="두번째" />
-        <Tab label="세번째" />
-      </Tabs>
-      <Box p={2}>선택된 탭: {value + 1}</Box>
-
-    <hr/>
-
-    <Button onClick={() => setOpen(true)}>알림 보기</Button>
-      <Snackbar
-        open={open}
-        autoHideDuration={3000}
-        onClose={() => setOpen(false)}
-        message="저장되었습니다!"
-      />
-
-    <hr/>
-
-    <Grid container spacing={2}>
-      {[1, 2, 3, 4].map((item) => (
-        <Grid item xs={6} md={3} key={item}>
-          <Paper sx={{ height: 100, textAlign: 'center', lineHeight: '100px' }}>{item}</Paper>
-        </Grid>
-      ))}
-    </Grid> */}
-{/* 
-  <BoardPage />
-  <LoginPage /> */}
-  {/* <DashboardPage />
-  <Checkbox {...label} defaultChecked />
-<Checkbox {...Label} />
-<Checkbox {...label} disabled />
-<Checkbox {...label} disabled checked /> */}
-  {/* <Tester /> */}
-   </>
-
-  )
+    </div>
+  );
 }
 
 export default App
