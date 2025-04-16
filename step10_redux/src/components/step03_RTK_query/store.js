@@ -2,11 +2,16 @@ import { configureStore } from '@reduxjs/toolkit';
 import { userApi } from './userApi'; 
 
 export const store = configureStore({
+
+   // 📦 상태를 관리할 공간을 등록
   reducer: {
-    [userApi.reducerPath]: userApi.reducer, // userApi: API 요청 관련 로직이 담긴 객체예요 (다른 파일에서 가져옴).
-  }, // userApi에서 정의한 이름('userApi')으로 상태를 저장해요.
+    [userApi.reducerPath]: userApi.reducer, 
+  }, // 'userApi'라는 이름으로 API 데이터를 저장하는 공간 생성
+  // 🛠 요청/응답 처리 로직을 미들웨어로 추가 (RTK Query 자동 처리 도구)
   middleware: (getDefaultMiddleware) =>
-    // 기본 도구들(예: 상태 검사)을 가져오고,  : RTK Query의 도구를 추가해요. 이건 API 요청을 처리하고 캐싱(저장)을 도와줘요.
     getDefaultMiddleware().concat(userApi.middleware),
+
 });
 
+
+export default store; // 스토어를 내보냄

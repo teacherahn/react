@@ -8,13 +8,16 @@ const UserList = () => {
   if (error) return <p>에러 발생!</p>;
 
   return (
-    <ul>
-      {data.map((user) => (
-        <li key={user.id}>
-          {user.name} ({user.email})
-        </li>
-      ))}
-    </ul>
+    <div>
+      <h2>👥 사용자 목록</h2>
+      <ul>
+        {data.map((user) => (
+          <li key={user.id}>
+            <strong>{user.name}</strong> - {user.email}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
