@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUsers } from './userSlice' // 비동기 작업을 위한 thunk 액션 가져오기  
 
-const UserList = () => {
+const ThunkEx = () => {
   const dispatch = useDispatch(); 
   const { users, loading, error } = useSelector((state) => state.user); // Redux에서 상태 가져오기
 
@@ -27,4 +27,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default ThunkEx;

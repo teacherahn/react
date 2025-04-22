@@ -1,7 +1,7 @@
 import React from 'react';
 import { useGetUsersQuery } from './userApi';
 
-const UserList = () => {
+const RtkQueryEx = () => {
   const { data, error, isLoading } = useGetUsersQuery(); // useGetUsersQuery: RTK Query가 만든 훅(Hook
 
   if (isLoading) return <p>로딩 중...</p>;
@@ -21,4 +21,4 @@ const UserList = () => {
   );
 };
 
-export default UserList;
+export default RtkQueryEx;

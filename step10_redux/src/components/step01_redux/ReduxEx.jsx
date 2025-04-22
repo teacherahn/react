@@ -21,7 +21,7 @@ import { increment, decrement, reset } from './counterSlice';
     
 */
 
-const Counter = () => {
+const ReduxEx = () => {
   
   const count = useSelector((state) => state.counter.value); // useSelector 훅을 사용하여 Redux에서 현재 상태(카운터) 값을 가져온다.
   const dispatch = useDispatch(); // useDispatch 훅을 사용하여 Redux에게 명령을 내릴 수 있는 도구를 가져온다.
@@ -31,11 +31,11 @@ const Counter = () => {
       <h2>🧮 Redux 카운터 예제</h2>
       <h3>카운트: {count}</h3>
       <button onClick={() => dispatch(increment())}>➕ 증가</button>
-      <button onClick={() => dispatch(decrement())}>➖ 감소</button>
+      <button onClick={() => dispatch(decrement({now : count - 1}))}>➖ 감소</button>
       <button onClick={() => dispatch(reset())}>🔁 초기화</button>
     </div>
   );
 
 };
 
-export default Counter;
+export default ReduxEx;

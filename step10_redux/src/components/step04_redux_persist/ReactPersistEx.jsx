@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from './auth';
 
-function LoginPage() {
+const ReactPersistEx = () => {
   const dispatch = useDispatch();
   const { isLoggedIn, user } = useSelector((state) => state.auth);
 
@@ -33,4 +33,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default ReactPersistEx;
