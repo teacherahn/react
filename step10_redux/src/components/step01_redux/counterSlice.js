@@ -4,21 +4,13 @@ import { createSlice } from '@reduxjs/toolkit'; // Redux Toolkit의 createSlice 
 /*
 
   ✅ counterSlice는 숫자 상태(value)를 관리하는 Slice입니다.
+  
   - Redux에서 상태와 상태 변경함수(리듀서)를 한 번에 정의할 수 있게 도와줍니다.
 
  */
 
 
-
 // createSlice({}) : Slice를 생성하는 함수
-// - name: slice의 이름을 정의 (액션 type의 prefix로 사용됨: ex. "counter/increment")
-// - initialState: 상태관리 값의 초깃값을 정의
-// - reducers: 상태를 변경하는 리듀서 함수를 정의 (액션 : 상태 변경 , 액션 생성자 : 액션을 만드는 함수)
-// - export default: 리듀서 함수는 Redux store에 등록할 때 사용
-// - export const { increment, decrement, reset } = counterSlice.actions: 액션 생성자들을 export (컴포넌트에서 dispatch할 때 사용됨)
-// - export const selectCount = (state) => state.counter.value: 상태를 가져오는 selector 함수를 export (컴포넌트에서 useSelector 훅을 사용하여 상태를 가져올 때 사용됨)
-// - export const selectCount = (state) => state.counter.value: 상태를 가져오는 selector 함수를 export (컴포넌트에서 useSelector 훅을 사용하여 상태를 가져올 때 사용됨)
-
 const counterSlice = createSlice({
 
   // 1. slice의 이름을 정의 (액션 type의 prefix로 사용됨: ex. "counter/increment")

@@ -13,8 +13,9 @@ import { increment, decrement, reset } from './counterSlice';
     - Redux는 상태를 변경하기 위한 액션과 리듀서를 사용합니다.
     - Redux는 상태를 변경하기 위한 액션을 디스패치(dispatch)합니다.
     
-    - Redux는 미들웨어를 사용하여 비동기 작업을 처리할 수 있습니다.
+    - npm install react-redux @reduxjs/toolkit 로 설치후 사용합니다.
     
+
 */
 
 const ReduxEx = () => {
