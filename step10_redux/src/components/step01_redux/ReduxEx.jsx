@@ -15,7 +15,6 @@ import { increment, decrement, reset } from './counterSlice';
     
     - npm install react-redux @reduxjs/toolkit 로 설치후 사용합니다.
     
-
 */
 
 const ReduxEx = () => {
